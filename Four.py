@@ -20,7 +20,7 @@ def create_video(text):
 		img.fill(255)  #Фоновый цвет 0 - чёрный, 255 - белый, кодировка RGB256
 
 		# Перерасчёт координат
-		x = (width - len(text) * 8) / 2 - frame_num * width / (fps * duration)
+		x = (width - len(text)) - (frame_num * len(text) / 4) * width / (fps * duration)
 		y = height // 2
 		#print(x, y)
 
