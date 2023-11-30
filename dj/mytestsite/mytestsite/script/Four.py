@@ -8,7 +8,8 @@ def create_video(text):
 	duration = 3
 
 	# Создаем видео-файл
-	video_writer = imageio.get_writer('output.mp4', fps=fps)
+	name_of_file = text + '.mp4'
+	video_writer = imageio.get_writer(name_of_file, fps=fps)
 
 	# Количество кадров в видео
 	num_frames = fps * duration
@@ -35,9 +36,11 @@ def create_video(text):
 		video_writer.append_data(cv2.cvtColor(img, cv2.COLOR_RGB2BGR))
 
 	video_writer.close()
+	return name_of_file
 
 ## Точка входа ##
 if __name__ == "__main__":
 	input_text = input("Введите текст для бегущей строки: ")
-	create_video(input_text)
+	t = create_video(input_text)
+	print(t)
 	print("Ваше видео готово!!")
