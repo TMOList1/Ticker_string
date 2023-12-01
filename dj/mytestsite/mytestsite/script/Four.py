@@ -10,7 +10,6 @@ def create_video(text):
 	# Создаем видео-файл
 	name_of_file = text + '.mp4'
 	video_writer = imageio.get_writer(name_of_file, fps=fps)
-
 	# Количество кадров в видео
 	num_frames = fps * duration
 
@@ -23,10 +22,10 @@ def create_video(text):
 		# Перерасчёт координат
 		x = (width - len(text)) - (frame_num * len(text) / 4) * width / (fps * duration)
 		y = height // 2
-		#print(x, y)
+
 
 		# Рисуем текст на изображении
-		font = cv2.FONT_HERSHEY_DUPLEX # Устанавливаем шрифт
+		font = cv2.FONT_HERSHEY_COMPLEX 	# Устанавливаем шрифт
 		font_scale = 1
 		font_thickness = 1
 		color = (0,0,0) # цвет текста
@@ -41,6 +40,6 @@ def create_video(text):
 ## Точка входа ##
 if __name__ == "__main__":
 	input_text = input("Введите текст для бегущей строки: ")
-	t = create_video(input_text)
-	print(t)
+	gened_video = create_video(input_text)
+	print(gened_video)
 	print("Ваше видео готово!!")
